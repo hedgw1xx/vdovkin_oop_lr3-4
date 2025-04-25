@@ -1,30 +1,42 @@
 #ifndef VDOVKIN_LR3_4_METHODS_H
 #define VDOVKIN_LR3_4_METHODS_H
 
-#include "vdovkin_def.hpp"
 #include "vdovkin_lr3-4_classPlanet.hpp"
 
 inline vector<Planet> planets;
+
+inline bool isValidMass(double mass) { return mass > 0; }
+
+inline bool isValidRadius(double radius) { return radius > 0; }
 
 inline void inputPlanet(Planet &planet) {
   string name;
   double mass, radius;
   vector<string> dates;
 
-  EnterString(cin, name, "Enter name: ");
+  cout << "Enter name: ";
+  cin >> name;
   planet.setName(name);
 
-  EnterDouble(cin, mass, "Enter mass: ");
+  do {
+    cout << "Enter mass (>0): ";
+    cin >> mass;
+  } while (!isValidMass(mass));
   planet.setMass(mass);
 
-  EnterDouble(cin, radius, "Enter radius: ");
+  do {
+    cout << "Enter radius (>0): ";
+    cin >> radius;
+  } while (!isValidRadius(radius));
   planet.setRadius(radius);
 
   int numDates;
-  EnterInt(cin, numDates, "Enter number of research dates: ");
+  cout << "Enter number of research dates: ";
+  cin >> numDates;
   for (int i = 0; i < numDates; ++i) {
     string date;
-    EnterString(cin, date, "Enter date: ");
+    cout << "Enter date " << i + 1 << ": ";
+    cin >> date;
     dates.push_back(date);
   }
   planet.setResearchDates(dates);
