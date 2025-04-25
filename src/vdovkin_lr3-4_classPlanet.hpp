@@ -1,7 +1,7 @@
-#include "vdovkin_def.hpp"
-
 #ifndef VDOVKIN_LR3_4_CLASSPLANET_H
 #define VDOVKIN_LR3_4_CLASSPLANET_H
+
+#include "vdovkin_def.hpp"
 
 class Planet {
 private:

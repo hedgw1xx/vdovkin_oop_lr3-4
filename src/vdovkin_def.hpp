@@ -1,6 +1,7 @@
 #ifndef VDOVKIN_DEF_HPP
 #define VDOVKIN_DEF_HPP
 
+#include <algorithm>
 #include <fstream>
 #include <functional>
 #include <iostream>
