@@ -1,7 +1,7 @@
 # Cross-platform Makefile
 CC = g++
 CFLAGS = -march=native -O2 -pipe -I src
-TARGET = program
+TARGET = main
 SRC_DIR = src
 BUILD_DIR = build
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
