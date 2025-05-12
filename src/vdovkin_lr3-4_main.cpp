@@ -36,9 +36,9 @@ int main(int argc, char *argv[]) {
 
     cout << "Menu:" << endl;
     for (const auto &item : menu) {
-      cout << "• " << item.first << ". " << item.second.title << endl;
+      cout << item.first << ". " << item.second.title << endl;
     }
-    cout << "• 0. Exit" << endl;
+    cout << "0. Exit" << endl;
 
     EnterInt(cin, choice, "Enter your choice: ")();
 
