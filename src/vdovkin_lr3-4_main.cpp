@@ -2,6 +2,7 @@
 #include "vdovkin_lr3-4_methods.hpp"
 
 int main(int argc, char *argv[]) {
+
   struct MenuItem {
     string title;
     function<void()> action;
@@ -12,8 +13,11 @@ int main(int argc, char *argv[]) {
       {2, {"Parameterized Constructor", demoParameterizedConstructor}},
       {3, {"Copy Constructor", demoCopyConstructor}},
       {4, {"Conversion Constructor", demoConversionConstructor}},
-      {5, {"Gravity Calculation", demoGravityCalculation}},
-      {6,
+      {5, {"Prefix Increment", demoPrefixIncrement}},
+      {6, {"Addition", demoAddition}},
+      {7, {"Postfix Increment", demoPostfixIncrement}},
+      {8, {"Gravity Calculation", demoGravityCalculation}},
+      {9,
        {"Add Planet",
         []() {
           Planet p;
@@ -21,14 +25,14 @@ int main(int argc, char *argv[]) {
           planets.push_back(p);
           cout << "Planet added: " << p << endl;
         }}},
-      {7, {"Display All Planets", displayAllPlanets}},
-      {8, {"Sort Planets by Mass", []() {
-             auto sorted = getSortedPlanetsByMass();
-             cout << "Planets sorted by mass:" << endl;
-             for (const auto &p : sorted) {
-               cout << p << endl;
-             }
-           }}}};
+      {10, {"Display All Planets", displayAllPlanets}},
+      {11, {"Sort Planets by Mass", []() {
+              auto sorted = getSortedPlanetsByMass();
+              cout << "Planets sorted by mass:" << endl;
+              for (const auto &p : sorted) {
+                cout << p << endl;
+              }
+            }}}};
 
   int choice = 0;
 
@@ -40,7 +44,7 @@ int main(int argc, char *argv[]) {
     }
     cout << "• 0. Exit" << endl;
 
-    EnterInt(cin, choice, "Enter your choice: ")();
+    Enter(cin, choice, "Enter your choice: ")();
 
     if (choice == 0) {
       cout << "© 2025 Eugene Vdovkin" << endl;

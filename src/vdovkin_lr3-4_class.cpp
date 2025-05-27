@@ -1,4 +1,5 @@
 #include "vdovkin_lr3-4_classPlanet.hpp"
+#include <iostream>
 
 const double Planet::G = 6.67430e-11;
 
@@ -32,7 +33,7 @@ bool Planet::operator<(const Planet &other) const { return mass < other.mass; }
 bool Planet::operator>(const Planet &other) const { return mass > other.mass; }
 
 Planet Planet::operator+(const Planet &other) const {
-  string newName = name + "+" + other.name;
+  string newName = name + " + " + other.name;
   double newMass = mass + other.mass;
   double newRadius = (radius + other.radius) / 2.0;
   vector<string> newDates = researchDates;
@@ -42,14 +43,13 @@ Planet Planet::operator+(const Planet &other) const {
 }
 
 Planet &Planet::operator++() {
-  mass += 1.0;
+  mass += 4.8e24;
   return *this;
 }
 
 Planet Planet::operator++(int) {
-  Planet temp = *this;
-  ++(*this);
-  return temp;
+  radius += 10e5;
+  return *this;
 }
 
 Planet &Planet::operator=(const Planet &other) {
@@ -72,20 +72,15 @@ ostream &operator<<(ostream &os, const Planet &planet) {
 }
 
 istream &operator>>(istream &is, Planet &planet) {
-  cout << "Enter name: ";
-  is >> planet.name;
-  cout << "Enter mass: ";
-  is >> planet.mass;
-  cout << "Enter radius: ";
-  is >> planet.radius;
-  cout << "Enter number of research dates: ";
+  Enter(is, planet.name, "Enter name: ")();
+  Enter(is, planet.mass, "Enter mass: ")();
+  Enter(is, planet.radius, "Enter radius: ")();
   int numDates;
-  is >> numDates;
+  Enter(is, numDates, "Enter number of research dates: ")();
   planet.researchDates.clear();
   for (int i = 0; i < numDates; ++i) {
     string date;
-    cout << "Enter date " << i + 1 << ": ";
-    is >> date;
+    Enter(is, date, "Enter date " + to_string(i + 1) + ": ")();
     planet.researchDates.push_back(date);
   }
   return is;

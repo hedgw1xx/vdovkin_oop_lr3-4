@@ -11,20 +11,20 @@ inline void inputPlanet(Planet &planet) {
   double mass, radius;
   vector<string> dates;
 
-  EnterString(cin, name, "Enter name: ")();
+  Enter(cin, name, "Enter name: ")();
   planet.setName(name);
 
-  EnterDouble(cin, mass, "Enter mass: ")();
+  Enter(cin, mass, "Enter mass: ")();
   planet.setMass(mass);
 
-  EnterDouble(cin, radius, "Enter radius: ")();
+  Enter(cin, radius, "Enter radius: ")();
   planet.setRadius(radius);
 
   int numDates;
-  EnterInt(cin, numDates, "Enter number of research dates: ")();
+  Enter(cin, numDates, "Enter number of research dates: ")();
   for (int i = 0; i < numDates; ++i) {
     string date;
-    EnterString(cin, date, "Enter date: ")();
+    Enter(cin, date, "Enter date: ")();
     dates.push_back(date);
   }
   planet.setResearchDates(dates);
@@ -75,4 +75,39 @@ inline vector<Planet> getSortedPlanetsByMass() {
   return sortedPlanets;
 }
 
+inline void demoPrefixIncrement() {
+  int index = 0;
+  Enter(cin, index, "enter planet index: ")();
+  Planet p = planets[index - 1];
+  cout << "Original: " << p << endl;
+  cout << "Prefix increment: " << ++p << endl;
+  planets.push_back(p);
+}
+
+inline void demoPostfixIncrement() {
+  int index = 0;
+  Enter(cin, index, "enter planet index: ")();
+  Planet p = planets[index - 1];
+  cout << "Original: " << p << endl;
+  cout << "Postfix increment: " << p++ << endl;
+  planets.push_back(p);
+}
+
+// idk
+inline void demoAddition() {
+  int i1, i2 = 0;
+  Enter(cin, i1, "Enter first planet: ")();
+  Enter(cin, i2, "Enter second planet: ")();
+
+  Planet p1(planets[i1 - 1]);
+  Planet p2(planets[i2 - 1]);
+  Planet p3 = p1 + p2;
+  planets.push_back(p3);
+
+  cout << "Original " << p1 << endl;
+  cout << "Original " << p2 << endl;
+  cout << "Addition: " << p3 << endl;
+}
+
+// TODO: realisation on added planets
 #endif // VDOVKIN_LR3_4_METHODS_H
