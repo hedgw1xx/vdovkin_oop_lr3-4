@@ -1,5 +1,4 @@
 #include "vdovkin_lr3-4_classPlanet.hpp"
-#include <iostream>
 
 const double Planet::G = 6.67430e-11;
 
@@ -43,7 +42,7 @@ Planet Planet::operator+(const Planet &other) const {
 }
 
 Planet &Planet::operator++() {
-  mass += 4.8e24;
+  mass += 4.8e5;
   return *this;
 }
 
