@@ -1,6 +1,6 @@
 # Cross-platform Makefile
 CC = g++
-CFLAGS = -march=native -O2 -pipe -I src
+CFLAGS = -march=native -O2 -pipe -I src -std=c++17
 TARGET = main
 SRC_DIR = src
 BUILD_DIR = build
