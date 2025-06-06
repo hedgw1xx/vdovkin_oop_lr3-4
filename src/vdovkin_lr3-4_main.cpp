@@ -13,11 +13,13 @@ int main(int argc, char *argv[]) {
       {2, {"Parameterized Constructor", demoParameterizedConstructor}},
       {3, {"Copy Constructor", demoCopyConstructor}},
       {4, {"Conversion Constructor", demoConversionConstructor}},
-      {5, {"Prefix Increment", demoPrefixIncrement}},
-      {6, {"Addition", demoAddition}},
+      {5, {"Addition", demoAddition}},
+      {6, {"Prefix Increment", demoPrefixIncrement}},
       {7, {"Postfix Increment", demoPostfixIncrement}},
-      {8, {"Gravity Calculation", demoGravityCalculation}},
-      {9,
+      {8, {"Comparison", demoComparison}},
+      {9, {"Assignment", demoAssignment}},
+      {10, {"Gravity Calculation", demoGravityCalculation}},
+      {11,
        {"Add Planet",
         []() {
           Planet p;
@@ -25,8 +27,8 @@ int main(int argc, char *argv[]) {
           planets.push_back(p);
           cout << "Planet added: " << p << endl;
         }}},
-      {10, {"Display All Planets", displayAllPlanets}},
-      {11, {"Sort Planets by Mass", []() {
+      {12, {"Display All Planets", displayAllPlanets}},
+      {13, {"Sort Planets by Mass", []() {
               auto sorted = getSortedPlanetsByMass();
               cout << "Planets sorted by mass:" << endl;
               for (const auto &p : sorted) {

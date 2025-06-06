@@ -90,7 +90,7 @@ inline void demoPostfixIncrement() {
   Planet p = planets[index - 1];
   cout << "Original: " << p << endl;
   cout << "Postfix increment: " << p++ << endl;
-  cout << "After increment" << p << endl;
+  cout << "After increment: " << p << endl;
   planets.push_back(p);
 }
 
@@ -110,5 +110,31 @@ inline void demoAddition() {
   cout << "Addition: " << p3 << endl;
 }
 
-// TODO: realisation on added planets
+inline void demoComparison() {
+  int i1, i2 = 0;
+  Enter(cin, i1, "Enter first planet: ")();
+  Enter(cin, i2, "Enter second planet: ")();
+
+  Planet p1(planets[i1 - 1]);
+  Planet p2(planets[i2 - 1]);
+
+  cout << "Original " << p1 << endl;
+  cout << "Original " << p2 << endl;
+  cout << "Comparison: "
+       << (p1 == p2 ? "equal" : (p1 < p2 ? "less" : "greater")) << endl;
+}
+
+inline void demoAssignment() {
+  int i1, i2 = 0;
+  Enter(cin, i1, "Enter first planet: ")();
+  Enter(cin, i2, "Enter second planet: ")();
+
+  Planet p1(planets[i1 - 1]);
+  Planet p2(planets[i2 - 1]);
+
+  cout << "Original " << p1 << endl;
+  cout << "Original " << p2 << endl;
+  p1 = p2;
+  cout << "Assignment: " << p1 << endl;
+}
 #endif // VDOVKIN_LR3_4_METHODS_H
