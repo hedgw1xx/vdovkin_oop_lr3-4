@@ -47,8 +47,9 @@ Planet &Planet::operator++() {
 }
 
 Planet Planet::operator++(int) {
+  Planet temp = *this;
   radius += 10e5;
-  return *this;
+  return temp;
 }
 
 Planet &Planet::operator=(const Planet &other) {

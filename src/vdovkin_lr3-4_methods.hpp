@@ -90,6 +90,7 @@ inline void demoPostfixIncrement() {
   Planet p = planets[index - 1];
   cout << "Original: " << p << endl;
   cout << "Postfix increment: " << p++ << endl;
+  cout << "After increment" << p << endl;
   planets.push_back(p);
 }
 
